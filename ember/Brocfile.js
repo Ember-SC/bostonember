@@ -14,7 +14,17 @@ var app = new EmberApp({
 });
 
 // Use this to add additional libraries to the generated output files.
-app.import('vendor/ember-data/ember-data.js');
+app.import({
+  development: 'vendor/ember-data/ember-data.js',
+  production:  'vendor/ember-data/ember-data.prod.js'
+}, {
+  'ember-data': [
+    'default'
+  ]
+});
+app.import({development:'vendor/route-recognizer/dist/route-recognizer.js'});
+app.import({development:'vendor/FakeXMLHttpRequest/fake_xml_http_request.js'});
+app.import({development:'vendor/pretender/pretender.js'});
 
 // If the library that you are including contains AMD or ES6 modules that
 // you would like to import into your application please specify an
